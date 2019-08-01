@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import RedditUserInput from '../components/redditUserInput';
-import TextAnalysis from '../components/textAnalysis';
+import TextAnalysis from './textAnalysis';
 
 import {connect} from 'react-redux';
 import {fetchComments} from '../actions/redditActions';
