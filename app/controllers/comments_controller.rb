@@ -1,7 +1,7 @@
-class UsersController < ApplicationController
+class CommentsController < ApplicationController
   def index
     name = params[:q]
-    if q.blank?
+    if name.blank?
       render status: 400, json: {error: "Expected parameter"}
     else
       render(

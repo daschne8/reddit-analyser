@@ -6,9 +6,6 @@ import TextAnalysis from '../components/users/textAnalysis';
 import {connect} from 'react-redux';
 import {fetchComments} from '../actions/redditActions';
 
-
-
-
 class RedditUserContainer extends Component{
   render(){
     return(

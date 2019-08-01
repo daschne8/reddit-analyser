@@ -3,10 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 # manage multiple servers
-gem 'foreman'
+gem 'foreman', '~>0.82.0'
 #ibm watson tone analyser
 gem 'ibm_watson'
 
+gem 'pry'
+#http requests
+gem 'faraday'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record

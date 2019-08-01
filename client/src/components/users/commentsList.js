@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import DataCloud from '../dataCloud'
 
 export default class CommentsList extends Component{
   render(){
-    console.log(this.props);
-    const commentList = this.props.comments.map(com => <li>{com.data.body}</li>)
+    //console.log(this.props.comments);
     return(
       <div>
-        {commentList}
+        <DataCloud keywords={this.props.comments.keywords} />
       </div>
     )
   }
