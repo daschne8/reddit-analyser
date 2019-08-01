@@ -6,17 +6,19 @@ export default class TextAnalysis extends Component{
     let analysis = ''
     if (this.props.comments.keywords) {
     analysis = this.props.comments.keywords.map(word =>
-    <div className="keyword">
-    <h3>{word.text}</h3>
-    <h4>sentiment: {word.sentiment.label}</h4>
-    <h4>{word.sentiment.score}</h4>
+    <div className="emotion-holder-div">
     <table className="emotion-table">
-      <tr><th>anger:</th><td>{word.emotion.anger}</td></tr>
-      <tr><th>disgust:</th><td>{word.emotion.disgust}</td></tr>
-      <tr><th>fear:</th><td>{word.emotion.fear}</td></tr>
-      <tr><th>joy:</th><td>{word.emotion.joy}</td></tr>
-      <tr><th>sadness:</th><td>{word.emotion.sadness}</td></tr>
+    <tbody>
+      <tr><th colspan="2"><span style={{size: 40, color: 'blue'}}>{word.text}</span></th></tr>
+      <tr><th>Sentiment:</th><td>{word.sentiment.score}</td></tr>
+      <tr><th>Anger:</th><td>{word.emotion.anger}</td></tr>
+      <tr><th>Disgust:</th><td>{word.emotion.disgust}</td></tr>
+      <tr><th>Fear:</th><td>{word.emotion.fear}</td></tr>
+      <tr><th>Joy:</th><td>{word.emotion.joy}</td></tr>
+      <tr><th>Sadness:</th><td>{word.emotion.sadness}</td></tr>
+    </tbody>
     </table>
+    <br></br>
     </div>)
     }
 
