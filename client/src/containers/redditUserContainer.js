@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import RedditUserInput from '../components/redditUserInput';
-import TextAnalysis from './textAnalysis';
 
 import {connect} from 'react-redux';
 import {fetchComments} from '../actions/redditActions';
@@ -10,7 +9,6 @@ class RedditUserContainer extends Component{
     return(
       <div>
         <RedditUserInput fetchComments={user => this.props.fetchComments(user)}/>
-        <TextAnalysis comments={this.props.comments}/>
       </div>
     )
   }

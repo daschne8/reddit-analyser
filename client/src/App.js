@@ -1,15 +1,26 @@
 import React from 'react';
 import './App.css';
 
-import RedditUserContainer from './containers/redditUserContainer'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import NavBar from './components/navBar'
+import Home from './components/home'
+import Cloud from './components/cloud'
+import Analysis from './components/analysis'
 
-function App() {
+
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-      <RedditUserContainer fetchComments={user => this.props.fetchComments(user)} />
-    </div>
+      <div className="App">
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/analysis" component={Analysis} />
+          <Route exact path="/cloud" component={Cloud} />
+        </Switch>
+      </Router>
+      </div>
+
   );
 }
 

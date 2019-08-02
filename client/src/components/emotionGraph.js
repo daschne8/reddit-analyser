@@ -18,8 +18,8 @@ export default class EmotionGraph extends Component{
       return(
       <div>
         <VictoryChart domainPadding={20}>
-        <VictoryAxis tickValues={data.map(d => d.emotion)} tickFormat={data.map(d => d.emotion)}/>
-        <VictoryAxis dependentAxis tickFormat={[-1,1]}/>
+          <VictoryAxis dependentAxis tickFormat={[-1,1]}/>
+          <VictoryAxis tickValues={data.map(d => d.emotion)} tickFormat={data.map(d => d.emotion)}/>
           <VictoryBar
             data={data}
             x="emotion"
