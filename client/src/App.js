@@ -8,7 +8,7 @@ import Cloud from './components/cloud'
 import Analysis from './components/analysis'
 
 
-const App = (props) => {
+const App = () => {
   return (
       <div className="App">
       <Router>

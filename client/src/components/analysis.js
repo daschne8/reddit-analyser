@@ -1,13 +1,29 @@
 import React, {Component} from 'react';
 import TextAnalysis from '../containers/textAnalysis'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {fetchComments} from '../actions/redditActions';
 
-const Analysis = () => {
-  return(
-    <div className="analysis-holder">
-      <header>ANALYSIS</header>
-      <p>Analyzing ...</p>
-      <TextAnalysis />
-    </div>
-  )
+
+class Analysis extends Component{
+  render(){
+    return(
+      <div className="analysis-holder">
+        <header>ANALYSIS</header>
+        <p>Analyzing ...</p>
+        {this.props.comments.keywords ? <TextAnalysis comments={this.props.comments}/> : null}
+      </div>
+    )
+  }
 }
-export default Analysis
+
+const mapStateToProps = ({reddit}) => ({
+  comments: reddit.comments
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchComments: (user) => dispatch(fetchComments(user))
+})
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Analysis)

@@ -1,8 +1,11 @@
 import React,{Component} from 'react';
 import RedditUserInput from '../components/redditUserInput';
-
-import {connect} from 'react-redux';
+import {push} from 'connected-react-router'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import {fetchComments} from '../actions/redditActions';
+
+import TextAnalysis from './textAnalysis'
 
 class RedditUserContainer extends Component{
   render(){
@@ -25,3 +28,4 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(RedditUserContainer);
+//export default RedditUserContainer

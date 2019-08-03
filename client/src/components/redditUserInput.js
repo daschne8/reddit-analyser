@@ -14,6 +14,7 @@ class RedditUserInput extends Component{
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.fetchComments(this.state.user)
+    console.log('user props log',this.props);
     this.setState({user: ''})
   }
   render(){

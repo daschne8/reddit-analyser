@@ -5,7 +5,7 @@ import EmotionGraph from '../components/emotionGraph'
 export default class TextAnalysis extends Component{
   render(){
     let analysis = ''
-    if (this.props.comments.keywords) {
+    if (this.props.comments) {
     analysis = this.props.comments.keywords.map(word =>
       <KeywordTable word={word} />)
     }
@@ -16,7 +16,7 @@ export default class TextAnalysis extends Component{
         <div className='tables-holder'>
           {analysis}
         </div>
-        {this.props.comments.keywords ? <EmotionGraph keywords={this.props.comments.keywords}/> : null}
+        {this.props.comments ? <EmotionGraph keywords={this.props.comments.keywords}/> : null}
       </div>
     )
   }
