@@ -16,7 +16,7 @@ export default class EmotionGraph extends Component{
       {emotion: 'Sadness', value: keywords.reduce((total,next)=> total + next.emotion.sadness,0)/ksize}
     ]
       return(
-      <div>
+      <div className='emotion-graph'>
         <VictoryChart domainPadding={20}>
           <VictoryAxis dependentAxis tickFormat={[-1,1]}/>
           <VictoryAxis tickValues={data.map(d => d.emotion)} tickFormat={data.map(d => d.emotion)}/>

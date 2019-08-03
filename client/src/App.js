@@ -14,9 +14,11 @@ const App = () => {
       <Router>
         <NavBar />
         <Switch>
+        <div className="app-body">
           <Route exact path="/" component={Home} />
           <Route exact path="/analysis" component={Analysis} />
           <Route exact path="/cloud" component={Cloud} />
+        </div>
         </Switch>
       </Router>
       </div>

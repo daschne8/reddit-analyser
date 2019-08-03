@@ -10,7 +10,6 @@ class Cloud extends Component{
     return(
       <div className="cloud-holder">
         <header>Cloud</header>
-        <p>We're in the cloud</p>
         {this.props.comments.keywords ? <DataCloud keywords={this.props.comments.keywords}/> : null}
       </div>
     )
@@ -20,9 +19,7 @@ const mapStateToProps = ({reddit}) => ({
   comments: reddit.comments
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchComments: (user) => dispatch(fetchComments(user))
-})
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Cloud)
+
+export default connect(mapStateToProps)(Cloud)

@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {withRouter} from 'react-router-dom'
 
 class RedditUserInput extends Component{
   state = {
@@ -14,8 +15,8 @@ class RedditUserInput extends Component{
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.fetchComments(this.state.user)
-    console.log('user props log',this.props);
     this.setState({user: ''})
+    this.props.history.push('/analysis')
   }
   render(){
     return(
@@ -29,4 +30,4 @@ class RedditUserInput extends Component{
   }
 }
 
-export default RedditUserInput;
+export default withRouter(RedditUserInput);

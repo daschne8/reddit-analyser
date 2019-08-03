@@ -10,7 +10,6 @@ class Analysis extends Component{
     return(
       <div className="analysis-holder">
         <header>ANALYSIS</header>
-        <p>Analyzing ...</p>
         {this.props.comments.keywords ? <TextAnalysis comments={this.props.comments}/> : null}
       </div>
     )
@@ -21,9 +20,6 @@ const mapStateToProps = ({reddit}) => ({
   comments: reddit.comments
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchComments: (user) => dispatch(fetchComments(user))
-})
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Analysis)
+export default connect(mapStateToProps)(Analysis)
