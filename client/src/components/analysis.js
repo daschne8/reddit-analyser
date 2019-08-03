@@ -7,9 +7,11 @@ import {fetchComments} from '../actions/redditActions';
 
 class Analysis extends Component{
   render(){
+    let analysis
+    this.props.comments.keywords ? analysis =  this.props.comments.name :  analysis = "Analyzing";
     return(
       <div className="analysis-holder">
-        <header>ANALYSIS</header>
+        <header>{analysis}</header>
         {this.props.comments.keywords ? <TextAnalysis comments={this.props.comments}/> : null}
       </div>
     )

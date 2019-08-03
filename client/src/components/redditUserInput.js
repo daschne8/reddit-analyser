@@ -23,7 +23,7 @@ class RedditUserInput extends Component{
       <div className="user-form">
         <form onSubmit={event => this.handleOnSubmit(event)}>
           <input type='text' value={this.state.user} onChange={event => this.handleOnChange(event)}/>
-          <input type='submit' value='Analyze User' />
+          <input type='submit' value='Analyze' />
         </form>
       </div>
     )

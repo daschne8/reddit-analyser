@@ -14,19 +14,33 @@ class User < ApplicationRecord
       url += "user/#{name}/comments.json"
     end
 
+    comments, response = self.get_reddit(url)
+    time_lapse = self.comments_by_time(response)
+    tone = self.get_tone(comments)
+
+    tone.result['name'] = name
+    return tone
+  end
+
+  def self.comments_by_time(response)
+    
+  end
+
+  def self.get_reddit(url)
     response = Faraday.get(url)
     res = JSON.parse(response.body)
     comments = res["data"]["children"].map{|child| child['data']['body']}.join(". ")
+    return [comments,res]
+  end
 
+  def self.get_tone(text)
     tone_analyser = IBMWatson::NaturalLanguageUnderstandingV1.new(
       version: "2019-07-12",
       iam_apikey: ENV['WATSON_KEY'],
       url: ENV['WATSON_URL']
     )
-
-
     watson = tone_analyser.analyze(
-      text: comments,
+      text: text,
       features: {
         entities:{
           emotion: true,
@@ -40,7 +54,7 @@ class User < ApplicationRecord
         }
       }
     )
-    watson.result['name'] = name
     return watson
   end
+
 end
