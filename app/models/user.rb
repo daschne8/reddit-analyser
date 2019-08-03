@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
     tone_analyser = IBMWatson::NaturalLanguageUnderstandingV1.new(
       version: "2019-07-12",
-      iam_apikey: "-KZ1cnRnLbD4D8PZTespOk3RER8eSzUlZsXgl0inO8kn",
+      iam_apikey: "-",
       url: "https://gateway-wdc.watsonplatform.net/natural-language-understanding/api"
     )
 
