@@ -5,16 +5,23 @@ include IBMWatson
 
 class User < ApplicationRecord
   def self.analyse(name, type = 'user')
-
     url = "https://www.reddit.com/" #user/#{name}/comments.json"
-    response = Faraday.get("https://www.reddit.com/user/#{name}/comments.json")
+
+    if name[0,3] == '(r)'
+      name = name[3,name.length-1]
+      url += "/r/#{name}/comments.json"
+    else
+      url += "user/#{name}/comments.json"
+    end
+
+    response = Faraday.get(url)
     res = JSON.parse(response.body)
     comments = res["data"]["children"].map{|child| child['data']['body']}.join(". ")
 
     tone_analyser = IBMWatson::NaturalLanguageUnderstandingV1.new(
       version: "2019-07-12",
-      iam_apikey: "-KZ1cnRnLbD4D8PZTespOk3RER8eSzUlZsXgl0inO8kn",
-      url: "https://gateway-wdc.watsonplatform.net/natural-language-understanding/api"
+      iam_apikey: ENV['WATSON_KEY'],
+      url: ENV['WATSON_URL']
     )
 
 
@@ -33,7 +40,7 @@ class User < ApplicationRecord
         }
       }
     )
-
+    watson.result['name'] = name
     return watson
   end
 end

@@ -7,6 +7,7 @@ gem 'foreman', '~>0.82.0'
 #ibm watson tone analyser
 gem 'ibm_watson'
 
+gem 'dotenv-rails'
 gem 'pry'
 #http requests
 gem 'faraday'

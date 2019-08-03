@@ -29,3 +29,4 @@
 
 #watson
 ibm-credentials.env
+.env

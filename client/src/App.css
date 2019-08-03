@@ -6,13 +6,14 @@
   color: #61dafb;
 }
 .nav-bar{
-  background-color: #a72461;
+  background-color: black;
   padding: 10px;
   display: flex;
   justify-content: space-around;
 }
 .nav-bar a{
   text-decoration: none;
+  color: white;
 }
 .app-body{
   background: #f9e090;
