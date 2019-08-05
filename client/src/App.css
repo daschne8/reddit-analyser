@@ -6,7 +6,7 @@
   color: #61dafb;
 }
 .nav-bar{
-  background-color: black;
+  background-color: #ff8a5c;
   padding: 10px;
   display: flex;
   justify-content: space-around;
@@ -16,21 +16,41 @@
   color: white;
 }
 .app-body{
-  background: #f9e090;
+  background: #fcf9ea;
 }
+
 .tables-holder{
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
-  background-color: #dc5353;
-
+  background-color: #badfdb;
 }
+thead{
+  color: black
+}
+
 .emotion-table{
   border-radius: 10px;
-  background: #ff935c;
-  padding: 5px;
+  background: #49beb7;
+  padding: 0px 5px;
   margin: 5px;
+  border: 2px solid #fcf9ea;
+  display: flex;
+  flex-direction: column;
 }
+table tr:nth-child(even){
+  background: rgba(186,223,219,.7);
+}
+
 header{
   padding: 5px;
+  text-align: left;
+}
+.emotion-table-header{
+  color: black;
+  background-color: #fcf9ea;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  align-self: center;
 }

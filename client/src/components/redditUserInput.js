@@ -3,27 +3,35 @@ import {withRouter} from 'react-router-dom'
 
 class RedditUserInput extends Component{
   state = {
-    user: ''
+    query: '',
   }
 
   handleOnChange = event => {
     this.setState({
-      user: event.target.value
+      query: event.target.value
     })
   }
 
-  handleOnSubmit = event => {
+  handleOnClick = event => {
     event.preventDefault()
-    this.props.fetchComments(this.state.user)
-    this.setState({user: ''})
+    let query = this.state.query
+    console.log('event value:', event.target.value);
+    if (event.target.value === 'subreddit') {
+      query = "(r)" + query
+    }
+    console.log("query",query);
+    this.props.fetchComments(query)
+    this.setState({query: ''})
     this.props.history.push('/analysis')
   }
   render(){
     return(
       <div className="user-form">
         <form onSubmit={event => this.handleOnSubmit(event)}>
-          <input type='text' value={this.state.user} onChange={event => this.handleOnChange(event)}/>
-          <input type='submit' value='Analyze' />
+          <input type='text' value={this.state.query} onChange={event => this.handleOnChange(event)}/>
+          <br></br>
+          <button value='user' onClick={event => this.handleOnClick(event)}>User</button>
+          <button value='subreddit' onClick={event => this.handleOnClick(event)}>Subreddit</button>
         </form>
       </div>
     )

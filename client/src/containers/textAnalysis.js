@@ -6,8 +6,8 @@ export default class TextAnalysis extends Component{
   render(){
     let analysis = ''
     if (this.props.comments) {
-    analysis = this.props.comments.keywords.map(word =>
-      <KeywordTable word={word} />)
+    analysis = this.props.comments.keywords.map((word,idx) =>
+      <KeywordTable key={idx} word={word} />)
     }
 
 

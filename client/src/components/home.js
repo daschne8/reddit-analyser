@@ -12,7 +12,7 @@ class Home extends Component {
     return(
       <div className="home-body" >
       <header>Reddit Analyser</header>
-      <p>Enter reddit user name or subbreddit appended with "(r)"</p>
+      <p>Enter reddit user name or subbreddit</p>
         <RedditUserContainer  />
       </div>
     )

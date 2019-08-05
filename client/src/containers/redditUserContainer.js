@@ -10,7 +10,7 @@ import TextAnalysis from './textAnalysis'
 class RedditUserContainer extends Component{
   render(){
     return(
-      <div>
+      <div className="user-subreddit">
         <RedditUserInput fetchComments={user => this.props.fetchComments(user)}/>
       </div>
     )
