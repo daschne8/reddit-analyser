@@ -9,7 +9,7 @@ class Cloud extends Component{
   render(){
     return(
       <div className="cloud-holder">
-        <header>Cloud</header>
+        <header className="page">Cloud</header>
         {this.props.comments.keywords ? <DataCloud keywords={this.props.comments.keywords}/> : null}
       </div>
     )

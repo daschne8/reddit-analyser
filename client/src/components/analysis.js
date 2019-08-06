@@ -7,11 +7,11 @@ import {fetchComments} from '../actions/redditActions';
 
 class Analysis extends Component{
   render(){
-    let analysis
-    this.props.comments.keywords ? analysis =  this.props.comments.name :  analysis = "Analyzing";
+    let analysis = ''
+    !this.props.error ? analysis =  this.props.comments.name :  analysis = "Analyzing";
     return(
       <div className="analysis-holder">
-        <header>{analysis}</header>
+        <header className="page">{analysis}</header>
         {this.props.comments.keywords ? <TextAnalysis comments={this.props.comments}/> : null}
       </div>
     )
@@ -19,7 +19,8 @@ class Analysis extends Component{
 }
 
 const mapStateToProps = ({reddit}) => ({
-  comments: reddit.comments
+  comments: reddit.comments,
+  error: reddit.error
 })
 
 

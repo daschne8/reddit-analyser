@@ -32,7 +32,6 @@ thead{
 .emotion-table{
   border-radius: 10px;
   background: #49beb7;
-  padding: 0px 5px;
   margin: 5px;
   border: 2px solid #fcf9ea;
   display: flex;
@@ -42,15 +41,20 @@ table tr:nth-child(even){
   background: rgba(186,223,219,.7);
 }
 
-header{
+header.page{
   padding: 5px;
   text-align: left;
 }
+
 .emotion-table-header{
   color: black;
   background-color: #fcf9ea;
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  align-self: center;
+  align-self: flex-start;
+}
+
+.flash{
+  background-color: red;
 }

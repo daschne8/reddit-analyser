@@ -11,7 +11,7 @@ class Home extends Component {
   render(){
     return(
       <div className="home-body" >
-      <header>Reddit Analyser</header>
+      <header className="page">Reddit Analyser</header>
       <p>Enter reddit user name or subbreddit</p>
         <RedditUserContainer  />
       </div>

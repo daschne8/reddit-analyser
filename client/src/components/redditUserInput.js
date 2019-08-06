@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import {withRouter} from 'react-router-dom'
 
 class RedditUserInput extends Component{
   state = {
@@ -19,10 +18,8 @@ class RedditUserInput extends Component{
     if (event.target.value === 'subreddit') {
       query = "(r)" + query
     }
-    console.log("query",query);
     this.props.fetchComments(query)
     this.setState({query: ''})
-    this.props.history.push('/analysis')
   }
   render(){
     return(
@@ -38,4 +35,4 @@ class RedditUserInput extends Component{
   }
 }
 
-export default withRouter(RedditUserInput);
+export default (RedditUserInput);
