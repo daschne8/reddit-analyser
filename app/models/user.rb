@@ -25,7 +25,7 @@ class User < ApplicationRecord
       http.request(request)
     end
 
-    return response.body
+    return JSON.parse(response.body)['access_token']
   end
 
   def self.analyse_with_token(name)

@@ -3,6 +3,7 @@ import TextAnalysis from '../containers/textAnalysis'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {fetchComments} from '../actions/redditActions';
+import {Redirect} from 'react-router'
 
 
 class Analysis extends Component{
@@ -13,6 +14,7 @@ class Analysis extends Component{
       <div className="analysis-holder">
         <header className="page">{analysis}</header>
         {this.props.comments.keywords ? <TextAnalysis comments={this.props.comments}/> : null}
+        {!this.props.comments.keywords ? <Redirect to="/" /> : null}
       </div>
     )
   }

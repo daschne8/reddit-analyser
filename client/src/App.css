@@ -42,7 +42,7 @@ table tr:nth-child(even){
 }
 
 header.page{
-  padding: 5px;
+  padding: 10px;
   text-align: left;
 }
 
@@ -57,4 +57,9 @@ header.page{
 
 .flash{
   background-color: red;
+}
+
+.left{
+  padding: 10px;
+  text-align: left;
 }
