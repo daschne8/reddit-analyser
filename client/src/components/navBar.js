@@ -15,7 +15,7 @@ class NavBar extends Component{
       <div className="nav-bar">
         <NavLink to="/" onClick={event => this.handleOnClick(event)}>Home</NavLink>
         <NavLink to="/analysis">Analysis</NavLink>
-        <NavLink to="/cloud">Cloud</NavLink>
+        <NavLink to="/comparison">Comparison</NavLink>
       </div>
     )
   }

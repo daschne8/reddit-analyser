@@ -63,3 +63,14 @@ header.page{
   padding: 10px;
   text-align: left;
 }
+.comparison{
+  display: flex;
+  flex-direction: row;
+}
+
+.graph-title{
+  text-decoration: underline;
+}
+.text-analysis{
+  padding: 5px;
+}

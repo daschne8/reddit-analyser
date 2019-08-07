@@ -9,10 +9,11 @@ export default class TextAnalysis extends Component{
     analysis = this.props.comments.keywords.map((word,idx) =>
       <KeywordTable key={idx} word={word} />)
     }
-
+    let name = this.props.comments.name
 
     return(
       <div className="text-analysis">
+        <header className="page">{name}</header>
         <div className='tables-holder'>
           {analysis}
         </div>

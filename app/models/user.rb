@@ -7,6 +7,8 @@ require 'uri'
 
 class User < ApplicationRecord
 
+ @@token = "-r58TMjGKCzZHGGr55RmLNa_RtYk"
+
   def self.get_token
     uri = URI.parse("https://www.reddit.com/api/v1/access_token")
     request = Net::HTTP::Post.new(uri)
@@ -25,8 +27,10 @@ class User < ApplicationRecord
       http.request(request)
     end
 
-    return JSON.parse(response.body)['access_token']
+    return response#JSON.parse(response.body)['access_token']
   end
+
+ #token needs reset every hour
 
   def self.analyse_with_token(name)
     url = "https://oauth.reddit.com/"
@@ -38,10 +42,9 @@ class User < ApplicationRecord
       url += "user/#{name}/comments"
     end
 
-    token = "-PqBtUDYAzJ4aLmieexz1mNUtm2A"#ENV['REDDIT_TOKEN']
     uri = URI.parse(url)
     request = Net::HTTP::Get.new(uri)
-    request["Authorization"] = "bearer #{token}"
+    request["Authorization"] = "bearer #{@@token}"
     request["User-agent"] = "reddit-ibm(daschne8)"
 
     req_options = {
@@ -51,10 +54,12 @@ class User < ApplicationRecord
     response = Net::HTTP.start(uri.hostname,uri.port,req_options) do |http|
       http.request(request)
     end
+
+    binding.pry
+
     comments = JSON.parse(response.body)["data"]["children"].map{|child| child['data']['body']}.join(". ")
     tone = self.get_tone(comments)
     tone.result['name'] = name
-    #binding.pry
     return tone
   end
 
@@ -72,7 +77,7 @@ class User < ApplicationRecord
     end
 
     comments, response = self.get_reddit(url)
-    time_lapse = self.comments_by_time(response)
+    #time_lapse = self.comments_by_time(response)
     tone = self.get_tone(comments)
 
     tone.result['name'] = name

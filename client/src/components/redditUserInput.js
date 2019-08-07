@@ -14,7 +14,6 @@ class RedditUserInput extends Component{
   handleOnClick = event => {
     event.preventDefault()
     let query = this.state.query
-    console.log('event value:', event.target.value);
     if (event.target.value === 'subreddit') {
       query = "(r)" + query
     }

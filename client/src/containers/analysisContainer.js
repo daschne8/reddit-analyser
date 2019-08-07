@@ -6,15 +6,13 @@ import {fetchComments} from '../actions/redditActions';
 import {Redirect} from 'react-router'
 
 
-class Analysis extends Component{
+class AnalysisContainer extends Component{
   render(){
     let analysis = ''
-    !this.props.error ? analysis =  this.props.comments.name :  analysis = "Analyzing";
     return(
       <div className="analysis-holder">
-        <header className="page">{analysis}</header>
-        {this.props.comments.keywords ? <TextAnalysis comments={this.props.comments}/> : null}
         {!this.props.comments.keywords ? <Redirect to="/" /> : null}
+        {this.props.comments.keywords ? <TextAnalysis comments={this.props.comments}/> : null}
       </div>
     )
   }
@@ -22,9 +20,8 @@ class Analysis extends Component{
 
 const mapStateToProps = ({reddit}) => ({
   comments: reddit.comments,
-  error: reddit.error
+  error: reddit.error,
 })
 
 
-
-export default connect(mapStateToProps)(Analysis)
+export default connect(mapStateToProps)(AnalysisContainer)

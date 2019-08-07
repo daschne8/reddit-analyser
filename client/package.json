@@ -7,7 +7,6 @@
     "connected-react-router": "^6.5.2",
     "randomcolor": "^0.5.4",
     "react": "^16.8.6",
-    "react-d3-cloud": "^0.7.0",
     "react-dom": "^16.8.6",
     "react-flash-message": "^1.0.2",
     "react-measure": "^2.3.0",

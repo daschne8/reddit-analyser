@@ -4,8 +4,9 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import NavBar from './components/navBar'
 import Home from './components/home'
-import Cloud from './components/cloud'
-import Analysis from './components/analysis'
+import Comparison from './containers/comparison'
+import AnalysisContainer from './containers/analysisContainer'
+
 
 
 const App = () => {
@@ -16,8 +17,8 @@ const App = () => {
         <Switch>
         <div className="app-body">
           <Route exact path="/" component={Home} />
-          <Route exact path="/analysis" component={Analysis} />
-          <Route exact path="/cloud" component={Cloud} />
+          <Route exact path="/analysis" component={AnalysisContainer} />
+          <Route exact path="/comparison" component={Comparison} />
         </div>
         </Switch>
       </Router>

@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
     else
       render(
         status: 200,
-        json: User.analyse_with_token(name)
-        #json: User.analyse(name)
+        #json: User.analyse_with_token(name)
+        json: User.analyse(name)
       )
     end
   end
