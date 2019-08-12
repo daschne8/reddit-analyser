@@ -1,13 +1,10 @@
 import React,{Component} from 'react';
 import RedditUserInput from '../components/redditUserInput';
-import {push} from 'connected-react-router'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
 import {fetchComments} from '../actions/redditActions';
 import {Redirect} from 'react-router'
 import FlashMessage from 'react-flash-message'
 
-import TextAnalysis from './textAnalysis'
 
 class RedditUserContainer extends Component{
   render(){

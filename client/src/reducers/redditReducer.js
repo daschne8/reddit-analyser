@@ -1,5 +1,3 @@
-import fetchComments from '../actions/redditActions';
-
 export default function redditReducer(
   state = {loading: false, comments: [], error: false, errorMessage: '', prevComments: []},
   action){

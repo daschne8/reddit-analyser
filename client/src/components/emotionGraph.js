@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import ReactDom from 'react-dom'
 import {VictoryBar, VictoryChart, VictoryAxis} from 'victory'
 
 export default class EmotionGraph extends Component{

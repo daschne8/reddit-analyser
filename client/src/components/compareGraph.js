@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import ReactDom from 'react-dom'
 import {VictoryBar, VictoryChart, VictoryAxis} from 'victory'
 
 export default class CompareGraph extends Component{
@@ -22,12 +21,12 @@ export default class CompareGraph extends Component{
     const dif1 = this.getData(this.props.first)
     const dif2 = this.getData(this.props.second)
     const data = [
-      {emotion: 'Sentiment', value: dif2[0] - dif1[0]},
-      {emotion: 'Anger', value: dif2[1] - dif1[1]},
-      {emotion: 'Disgust', value: dif2[2] - dif1[2]},
-      {emotion: 'Fear', value: dif2[3] - dif1[3]},
-      {emotion: 'Joy', value: dif2[4] - dif1[4]},
-      {emotion: 'Sadness', value: dif2[5] - dif1[5]}
+      {emotion: 'Sentiment', value: dif1[0] - dif2[0]},
+      {emotion: 'Anger', value: dif1[1] - dif2[1]},
+      {emotion: 'Disgust', value: dif1[2] - dif2[2]},
+      {emotion: 'Fear', value: dif1[3] - dif2[3]},
+      {emotion: 'Joy', value: dif1[4] - dif2[4]},
+      {emotion: 'Sadness', value: dif1[5] - dif2[5]}
     ]
     return data
   }

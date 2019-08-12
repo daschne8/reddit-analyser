@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import {fetchComments} from '../actions/redditActions';
 import {Redirect} from 'react-router'
 import TextAnalysis from './textAnalysis'
 import CompareGraph from '../components/compareGraph'
@@ -14,10 +12,12 @@ class Comparison extends Component{
         <div className="comparison">
           {!this.props.prevComments.keywords ? <Redirect to="/" /> : null }
           {!this.props.comments.keywords  ? <Redirect to="/" /> : null }
-          <TextAnalysis comments={this.props.comments} />
-          <TextAnalysis comments={this.props.prevComments} />
+          {!this.props.prevComments.keywords ? <Redirect to="/" /> : <TextAnalysis comments={this.props.comments} /> }
+          {!this.props.comments.keywords  ? <Redirect to="/" /> : <TextAnalysis comments={this.props.prevComments} /> }
+
+
         </div>
-        <CompareGraph first={this.props.comments.keywords} second={this.props.prevComments.keywords} />
+         {!this.props.comments.keywords ? <Redirect to='/' /> : <CompareGraph first={this.props.comments.keywords} second={this.props.prevComments.keywords} />}
       </div>
     )
   }
