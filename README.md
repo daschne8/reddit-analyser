@@ -1,24 +1,18 @@
-# README
+Reddit Analyser
+Rails back-end React fornt-end web app that takes a query for user/subreddit and analyses most recent comments for emotion.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Prerequisites:
+you will need to create your own Reddit developer app and IBM Watson tone analyser app and put credentials in .env file
 
-Things you may want to cover:
+Install:
+install by running bundle install in main directory, and npm install in the /client sub-folder
 
-* Ruby version
+Built With:
+Ruby on Rails
+React.js
 
-* System dependencies
+Author:
+daschne8
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Liscense:
+This project is licensed under the MIT License - see the LICENSE.md file for details
