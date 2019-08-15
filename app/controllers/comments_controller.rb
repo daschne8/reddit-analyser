@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
     if name.blank?
       render status: 400, json: {error: "Expected parameter"}
     else
-      user = User.find_or_create_by(name: name)
-      if user.comments.blank? || user.comments.nil?
+      if !User.find_by(name: name)
+        user = User.create(name: name)
         keywords = User.analyse(name).result['keywords']
         keywords.each do |kw|
           keyword = Keyword.create(
@@ -21,6 +21,8 @@ class CommentsController < ApplicationController
           keyword.save
         end
         user.save
+      else
+        user = User.find_by(name: name)
       end
 
       render(
