@@ -11,7 +11,7 @@ class RedditUserContainer extends Component{
     return(
       <div className="user-subreddit">
         {this.props.error ? <div className='flash' ><FlashMessage duration={5000}><strong>Invalid Query</strong></FlashMessage></div> : null}
-        <RedditUserInput fetchComments={user => this.props.fetchComments(user)}/>
+        <RedditUserInput fetchComments={(user,which) => this.props.fetchComments(user,which)}/>
         {this.props.comments.keywords ? <Redirect to="/analysis" /> : null}
       </div>
     )
@@ -20,13 +20,13 @@ class RedditUserContainer extends Component{
 
 
 const mapStateToProps = ({reddit}) => ({
-  comments: reddit.comments,
+  comments: reddit.comments.a,
   error: reddit.error,
   errorMessage: reddit.errorMessage
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchComments: (user) => dispatch(fetchComments(user))
+  fetchComments: (user,which) => dispatch(fetchComments(user,which))
 })
 
 

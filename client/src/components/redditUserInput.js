@@ -17,7 +17,7 @@ class RedditUserInput extends Component{
     if (event.target.value === 'subreddit') {
       query = "(r)" + query
     }
-    this.props.fetchComments(query)
+    this.props.fetchComments(query, 'a')
     this.setState({query: ''})
   }
   render(){

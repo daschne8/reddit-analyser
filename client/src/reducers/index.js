@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
 import redditReducer from './redditReducer';
+import nameReducer from './nameReducer'
 import {connectRouter} from 'connected-react-router'
 import history from '../store'
 

@@ -31,4 +31,12 @@ class CommentsController < ApplicationController
       )
     end
   end
+
+  def get_names
+    render(
+      status: 200,
+      json: User.all.pluck(:name)
+    )
+  end
+
 end

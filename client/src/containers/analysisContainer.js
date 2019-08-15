@@ -16,8 +16,7 @@ class AnalysisContainer extends Component{
 }
 
 const mapStateToProps = ({reddit}) => ({
-  comments: reddit.comments,
-  error: reddit.error,
+  comments: reddit.comments.a,
 })
 
 

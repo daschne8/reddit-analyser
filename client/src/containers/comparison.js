@@ -1,23 +1,25 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {Redirect} from 'react-router'
-import TextAnalysis from './textAnalysis'
 import CompareGraph from '../components/compareGraph'
+import {fetchNames,fetchComments} from '../actions/redditActions';
+import CompareContainer from './compareContainer'
+
 
 
 class Comparison extends Component{
+
+  componentWillMount(){
+    this.props.fetchNames()
+  }
+
   render(){
     return(
       <div>
         <div className="comparison">
-          {!this.props.prevComments.keywords ? <Redirect to="/" /> : null }
-          {!this.props.comments.keywords  ? <Redirect to="/" /> : null }
-          {!this.props.prevComments.keywords ? <Redirect to="/" /> : <TextAnalysis comments={this.props.comments} /> }
-          {!this.props.comments.keywords  ? <Redirect to="/" /> : <TextAnalysis comments={this.props.prevComments} /> }
-
-
+        <CompareContainer names={this.props.names} which='b'/>
+        <CompareContainer names={this.props.names} which='c'/>
         </div>
-         {!this.props.comments.keywords ? <Redirect to='/' /> : <CompareGraph first={this.props.comments.keywords} second={this.props.prevComments.keywords} />}
+        {!!this.props.comments['b'].keywords && !!this.props.comments['c'].keywords ? <CompareGraph first={this.props.comments['b'].keywords} second={this.props.comments['c'].keywords}/> : null}
       </div>
     )
   }
@@ -25,9 +27,12 @@ class Comparison extends Component{
 
 const mapStateToProps = ({reddit}) => ({
   comments: reddit.comments,
-  prevComments: reddit.prevComments,
-  error: reddit.error
+  names: reddit.names
+})
+
+const mapDispatchToProps = dispatch => ({
+  fetchNames: () => dispatch(fetchNames())
 })
 
 
-export default connect(mapStateToProps)(Comparison)
+export default connect(mapStateToProps,mapDispatchToProps)(Comparison)
