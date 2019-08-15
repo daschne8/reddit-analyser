@@ -7,12 +7,12 @@ export default class CompareGraph extends Component{
     const ksize = keywords.length
 
     let differences = [
-      keywords.reduce((total,next)=> total + next.sentiment.score,0)/ksize,
-      keywords.reduce((total,next)=> total + next.emotion.anger,0)/ksize,
-      keywords.reduce((total,next)=> total + next.emotion.disgust,0)/ksize,
-      keywords.reduce((total,next)=> total + next.emotion.fear,0)/ksize,
-      keywords.reduce((total,next)=>total + next.emotion.joy,0)/ksize,
-      keywords.reduce((total,next)=> total + next.emotion.sadness,0)/ksize
+      keywords.reduce((total,next)=> total + next.sentiment,0)/ksize,
+      keywords.reduce((total,next)=> total + next.anger,0)/ksize,
+      keywords.reduce((total,next)=> total + next.disgust,0)/ksize,
+      keywords.reduce((total,next)=> total + next.fear,0)/ksize,
+      keywords.reduce((total,next)=>total + next.joy,0)/ksize,
+      keywords.reduce((total,next)=> total + next.sadness,0)/ksize
     ]
     return differences
   }

@@ -4,7 +4,7 @@ export default class KeywordTable extends Component{
   render(){
     return(
       <div className="emotion-table">
-      <header className="emotion-table-header">{this.props.word.text}</header>
+      <header className="emotion-table-header">{this.props.word.name}</header>
       <table>
       <tbody>
         <tr><th>Sentiment:</th><td>{this.props.word.sentiment}</td></tr>
