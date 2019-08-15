@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_220712) do
+ActiveRecord::Schema.define(version: 2019_08_15_153841) do
+
+  create_table "keywords", force: :cascade do |t|
+    t.float "user_id"
+    t.float "sentiment"
+    t.float "sadness"
+    t.float "joy"
+    t.float "fear"
+    t.float "disgust"
+    t.float "anger"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

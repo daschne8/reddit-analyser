@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  sentiment: 1
+  sadness: 1
+  joy: 1
+  fear: 1
+  disgust: 1
+  anger: 1
+
+two:
+  user_id: 1
+  sentiment: 1
+  sadness: 1
+  joy: 1
+  fear: 1
+  disgust: 1
+  anger: 1

@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
+gem 'active_model_serializers'
 ruby '2.6.3'
 # manage multiple servers
 gem 'foreman', '~>0.82.0'

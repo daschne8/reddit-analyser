@@ -4,10 +4,28 @@ class CommentsController < ApplicationController
     if name.blank?
       render status: 400, json: {error: "Expected parameter"}
     else
+      user = User.find_or_create_by(name: name)
+      if user.comments.blank? || user.comments.nil?
+        keywords = User.analyse(name).result['keywords']
+        keywords.each do |kw|
+          keyword = Keyword.create(
+            name: kw['text'],
+            sentiment: kw['sentiment']['score'],
+            sadness:kw['emotion']['sadness'],
+            joy: kw['emotion']['joy'],
+            fear: kw['emotion']['fear'],
+            disgust: kw['emotion']['disgust'],
+            anger: kw['emotion']['anger']
+            )
+          user.keywords << keyword
+          keyword.save
+        end
+        user.save
+      end
+
       render(
         status: 200,
-        #json: User.analyse_with_token(name)
-        json: User.analyse(name)
+        json: user
       )
     end
   end
